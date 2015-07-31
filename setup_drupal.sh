@@ -18,7 +18,7 @@ install_puppet_agent() {
 
 
 download_module(){
-	repository_url="https://github.com/OpsTree/PuppetDrupalSetup.git"
+	repository_url="https://github.com/redcrackle/PuppetDrupalSetup.git"
 	git clone $repository_url /etc/puppet/environments/redcrackle
 }
 
