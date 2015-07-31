@@ -17,13 +17,11 @@ set -e
 	mkdir -p /etc/puppet/environments/redcrackle
 }
 
-
  download_module(){
-	repository_url="https://github.com/OpsTree/PuppetDrupalSetup.git"
+	repository_url="https://github.com/redcrackle/PuppetDrupalSetup.git"
 	git clone $repository_url /etc/puppet/environments/redcrackle
 }
 
- 
  apply_catalog(){
 	puppet apply --modulepath=/etc/puppet/environments/redcrackle/modules /etc/puppet/environments/redcrackle/manifest/drupal_stack.pp --debug
 	puppet apply --modulepath=/etc/puppet/environments/redcrackle/modules /etc/puppet/environments/redcrackle/manifest/deploy_drupal_app.pp --debug
