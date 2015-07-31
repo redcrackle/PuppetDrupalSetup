@@ -6,7 +6,7 @@ class {'drupalwithmysql':
  db_password => 'password',
  db_name => 'drupal7',
  drupal_ip_addresses => ['localhost'],
- drupal_deploy_path => '/usr/share/nginx/html',
+ drupal_deploy_path => '/usr/share/nginx/www',
  git_username => "nu113r",
  git_password => "mohit123",
  memcache_module_path => "sites/all/modules/contrib",
