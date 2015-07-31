@@ -1,0 +1,9 @@
+#!/bin/bash
+php_version=$1
+update-alternatives --install /usr/bin/php php /opt/PHP-${php_version}/bin/php 100;
+rm -f /usr/bin/pear
+update-alternatives --install /usr/bin/pear pear /opt/PHP-${php_version}/bin/pear 100;
+rm -f /usr/bin/peardev
+update-alternatives --install /usr/bin/peardev peardev /opt/PHP-${php_version}/bin/peardev 100;
+rm -f /usr/bin/pecl
+update-alternatives --install /usr/bin/pecl pecl /opt/PHP-${php_version}/bin/pecl 100

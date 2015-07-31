@@ -1,0 +1,12 @@
+[
+{rabbit, [
+    {ssl_options, [
+               {cacertfile,"/etc/rabbitmq/ca.pem"},
+               {certfile,"/etc/rabbitmq/public.pem"},
+               {keyfile,"/etc/rabbitmq/private.pem"},
+               {verify,verify_peer},
+               {fail_if_no_peer_cert,false}]}
+  ]},
+{rabbitmq_stomp, [{tcp_listeners, [{"0.0.0.0", 6163},
+                                  {"::1",       6163}]},{ssl_listeners, [6164]}]}
+].

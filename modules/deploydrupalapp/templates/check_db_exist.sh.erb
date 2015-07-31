@@ -1,0 +1,20 @@
+#!/bin/bash
+
+EXPECTED_ARGS=4
+E_BADARGS=65
+MYSQL=`which mysql`
+dbname=$1
+username=$2
+password=$3
+host=$4
+
+Q1="CREATE DATABASE IF NOT EXISTS ${dbname};"
+SQL="${Q1}"
+
+if [ $# -ne $EXPECTED_ARGS ]
+then
+  echo "Usage: $0 dbname dbuser dbpass"
+  exit $E_BADARGS
+fi
+
+$MYSQL -h ${host} -uroot -p${password} -e "$SQL"

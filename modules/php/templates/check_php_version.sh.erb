@@ -1,0 +1,19 @@
+#!/bin/bash
+
+php_version=$1
+php -v
+if [ $? -eq 0 ]
+then 
+   PHP_VERSION=$(php -v | grep "PHP 5" | sed 's/.*PHP \([^-]*\).*/\1/' | cut -c 1-6)
+   echo "PHP version: '$PHP_VERSION'"
+   if [[ "$PHP_VERSION" == *$php_version* ]]; then
+      echo "Already Installed"
+   else
+      /etc/init.d/php-fpm stop
+      rm /usr/bin/pear;rm /usr/bin/pecl;rm /usr/bin/peardev
+      update-alternatives --remove php /opt/PHP-${PHP_VERSION}/bin/php;update-alternatives --remove pear /opt/PHP-${PHP_VERSION}/bin/pear;update-alternatives --remove peardev /opt/PHP-${PHP_VERSION}/bin/peardev;update-alternatives --remove pecl /opt/PHP-${PHP_VERSION}/bin/pecl
+      exit 0
+   fi
+else
+    echo "No Php Installed"
+fi
